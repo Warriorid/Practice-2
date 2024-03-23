@@ -19,7 +19,7 @@ void calling_functions(UsersModule& user, int& countUsers){
                 user.addUserFromInput(countUsers);
                 break;
             case 2:
-                user.displayUsers();
+                user.deleteUser();
                 break;
             case 3:
                 user.editUser();

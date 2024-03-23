@@ -45,6 +45,23 @@ public:
         countUsers++;
     }
 
+    void deleteUser() {
+        for (int i = 0; i < users.size(); i++) {
+            std::cout << i << " - " << users[i].getName() << std::endl;
+        }
+
+        int index;
+        std::cout << "Введите номер пользователя для удаления: ";
+        std::cin >> index;
+
+        if (index >= 0 && index < users.size()) {
+            users.erase(users.begin() + index);
+            std::cout << "Пользователь удален успешно." << std::endl;
+        } else {
+            std::cout << "Некорректный номер пользователя. Повторите попытку." << std::endl;
+        }
+    }
+
     void displayUsers() {
         if(users.size()==0){
             std::cout << "list empty"<< std::endl << std::endl;
