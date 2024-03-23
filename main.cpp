@@ -1,9 +1,8 @@
-#include "users.h"
+#include "userFunc.h"
 
 int main() {
     UsersModule usersModule;
-    usersModule.addUserFromInput();
-    usersModule.displayUsers();
+    calling_functions(usersModule);
 
     return 0;
 }
