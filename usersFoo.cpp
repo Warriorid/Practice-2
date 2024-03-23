@@ -22,7 +22,7 @@ void calling_functions(UsersModule& user, int& countUsers){
                 user.displayUsers();
                 break;
             case 3:
-
+                user.editUser();
                 break;
             case 4:
                 user.displayUsers();

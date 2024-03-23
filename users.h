@@ -54,6 +54,32 @@ public:
             std::cout << "User " << i + 1 << ": " << users[i].getName() << ", " << users[i].getAge() << " years old, " << users[i].getWeight() << " kg" << std::endl;
         }
     }
+
+    void editUser(){
+        for (int i = 0; i < users.size(); i++) {
+            std::cout << i << " - " << users[i].getName() << std::endl;
+        }
+        std::cout << "Enter index of user: ";
+        int index, Age, Height;
+        std::string Name;
+        float Weight;
+        std::cin >> index;
+        std::cout << "Введите имя пользователя: ";
+        std::cin >> Name;
+        std::cout << "Введите возраст пользователя: ";
+        std::cin >> Age;
+        std::cout << "Введите рост пользователя (в см): ";
+        std::cin >> Height;
+        std::cout << "Введите вес пользователя (в кг): ";
+        std::cin >> Weight;
+        if (index >= 0 && index < users.size()) {
+            users[index].setName(Name);
+            users[index].setAge(Age);
+            users[index].setWeight(Weight);
+        }
+    }
 };
+
+
 
 
