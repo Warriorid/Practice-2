@@ -44,6 +44,15 @@ public:
         users.push_back(newUser);
     }
 
+    void displayUsers() {
+        if(users.size()==0){
+            std::cout << "list empty"<< std::endl << std::endl;
+            return;
+        }
+        for (int i = 0; i < users.size(); i++) {
+            std::cout << "User " << i + 1 << ": " << users[i].getName() << ", " << users[i].getAge() << " years old, " << users[i].getWeight() << " kg" << std::endl;
+        }
+    }
 };
 
 
