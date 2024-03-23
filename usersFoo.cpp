@@ -1,7 +1,7 @@
 #include "users.h"
 
 
-void calling_functions(UsersModule& user){
+void calling_functions(UsersModule& user, int& countUsers){
     int choice;
     do {
         std::cout << "1. Add user" << std::endl;
@@ -16,7 +16,7 @@ void calling_functions(UsersModule& user){
 
         switch (choice) {
             case 1:
-                user.addUserFromInput();
+                user.addUserFromInput(countUsers);
                 break;
             case 2:
                 user.displayUsers();

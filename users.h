@@ -28,7 +28,7 @@ private:
     std::vector<User> users;
 
 public:
-    void addUserFromInput() {
+    void addUserFromInput(int &countUsers) {
         std::string name;
         int age, height;
         float weight;
@@ -42,6 +42,7 @@ public:
         std::cin >> weight;
         User newUser(name, age, height, weight);
         users.push_back(newUser);
+        countUsers++;
     }
 
     void displayUsers() {
