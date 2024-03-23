@@ -1,6 +1,8 @@
-#include <iostream>
+#include "users.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    UsersModule usersModule;
+    usersModule.addUserFromInput();
+
     return 0;
 }
