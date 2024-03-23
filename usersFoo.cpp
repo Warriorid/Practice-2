@@ -8,7 +8,10 @@ void calling_functions(UsersModule& user, int& countUsers){
         std::cout << "2. Delete user" << std::endl;
         std::cout << "3. Edit date about user" << std::endl;
         std::cout << "4. Print date about users" << std::endl;
-        std::cout << "5. training" << std::endl;
+        std::cout << "5. Training" << std::endl;
+        std::cout << "6. Add daily calorie data" << std::endl;
+        std::cout << "7. View a graph of weight changes" << std::endl;
+        std::cout << "8. View a graph of calorie changes" << std::endl;
         std::cout << "0. Exit" << std::endl;
         std::cout << "Enter your choice: ";
         std::cin >> choice;
@@ -28,10 +31,16 @@ void calling_functions(UsersModule& user, int& countUsers){
                 user.displayUsers();
                 break;
             case 5:
-
+                std::cout << "В разработке... " << std::endl;
                 break;
             case 6:
-
+                std::cout << "В разработке... " << std::endl;
+                break;
+            case 7:
+                std::cout << "В разработке... " << std::endl;
+                break;
+            case 8:
+                std::cout << "В разработке... " << std::endl;
                 break;
             case 0:
                 std::cout << "Exiting..." << std::endl;
