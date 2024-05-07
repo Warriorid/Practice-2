@@ -1,9 +1,7 @@
 #include "userFunc.h"
+#include "Graphic/Graphic.h"
 
 int main() {
-    int countUsers = 0;
-    UsersModule usersModule;
-    calling_functions(usersModule, countUsers);
-
+    window();
     return 0;
 }
