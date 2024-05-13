@@ -34,13 +34,13 @@ public:
         std::string name;
         int age, height;
         float weight;
-        std::cout << "Введите имя пользователя: ";
+        std::cout << "Enter name: ";
         std::cin >> name;
-        std::cout << "Введите возраст пользователя: ";
+        std::cout << "Enter age: ";
         std::cin >> age;
-        std::cout << "Введите рост пользователя (в см): ";
+        std::cout << "Enter height (in centimetre): ";
         std::cin >> height;
-        std::cout << "Введите вес пользователя (в кг): ";
+        std::cout << "Enter Weight (в kg): ";
         std::cin >> weight;
         User newUser(name, age, height, weight);
         users.push_back(newUser);
@@ -53,14 +53,14 @@ public:
         }
 
         int index;
-        std::cout << "Введите номер пользователя для удаления: ";
+        std::cout << "Enter number of user: ";
         std::cin >> index;
 
         if (index >= 0 && index < users.size()) {
             users.erase(users.begin() + index);
-            std::cout << "Пользователь удален успешно." << std::endl;
+            std::cout << "User deleted." << std::endl;
         } else {
-            std::cout << "Некорректный номер пользователя. Повторите попытку." << std::endl;
+            std::cout << "Error index." << std::endl;
         }
     }
 
@@ -83,13 +83,13 @@ public:
         std::string Name;
         float Weight;
         std::cin >> index;
-        std::cout << "Введите имя пользователя: ";
+        std::cout << "Enter name: ";
         std::cin >> Name;
-        std::cout << "Введите возраст пользователя: ";
+        std::cout << "Enter age: ";
         std::cin >> Age;
-        std::cout << "Введите рост пользователя (в см): ";
+        std::cout << "Enter height (in centimetre): ";
         std::cin >> Height;
-        std::cout << "Введите вес пользователя (в кг): ";
+        std::cout << "Enter Weight (в kg): ";
         std::cin >> Weight;
         if (index >= 0 && index < users.size()) {
             users[index].setName(Name);
