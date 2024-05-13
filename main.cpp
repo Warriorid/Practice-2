@@ -2,6 +2,8 @@
 #include "Graphic/Graphic.h"
 
 int main() {
-    window();
+    int countUsers = 0;
+    UsersModule usersModule;
+    window(usersModule, countUsers);
     return 0;
 }

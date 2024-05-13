@@ -1,3 +1,5 @@
+#ifndef PRACTICE_2_users
+#define PRACTICE_2_users
 #include <iostream>
 #include <string>
 #include <vector>
@@ -98,5 +100,5 @@ public:
 };
 
 
-
+#endif
 
