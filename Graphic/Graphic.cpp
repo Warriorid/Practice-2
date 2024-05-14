@@ -1,5 +1,6 @@
 #include "Graphic.h"
 
+
 void window(UsersModule& user, int& countUsers) {
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("image1.jpg")) {
@@ -30,6 +31,14 @@ void window(UsersModule& user, int& countUsers) {
     textDeleteUser.setFont(font);
     textDeleteUser.setPosition(buttonDeleteUser.getPosition().x + 25, buttonDeleteUser.getPosition().y + 10);
 
+    sf::RectangleShape buttonDisplayUsers(sf::Vector2f(200, 50));
+    buttonDisplayUsers.setPosition(300, 250);
+    buttonDisplayUsers.setFillColor(sf::Color(0, 0, 0, 200));
+
+    sf::Text textDisplayUsers("Display User", font, 20);
+    textDisplayUsers.setFont(font);
+    textDisplayUsers.setPosition(buttonDisplayUsers.getPosition().x + 25, buttonDisplayUsers.getPosition().y + 10);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -41,7 +50,9 @@ void window(UsersModule& user, int& countUsers) {
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
                     user.addUserFromInput(countUsers);
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
-                    user.deleteUser(); // Предполагается, что в UsersModule есть функция deleteUser
+                    user.deleteUser();
+                } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
+                    user.displayUsers();
                 }
             }
         }
@@ -52,6 +63,8 @@ void window(UsersModule& user, int& countUsers) {
         window.draw(textAddUser);
         window.draw(buttonDeleteUser);
         window.draw(textDeleteUser);
+        window.draw(buttonDisplayUsers);
+        window.draw(textDisplayUsers);
         window.display();
     }
 }

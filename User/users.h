@@ -51,11 +51,9 @@ public:
         for (int i = 0; i < users.size(); i++) {
             std::cout << i << " - " << users[i].getName() << std::endl;
         }
-
         int index;
         std::cout << "Enter number of user: ";
         std::cin >> index;
-
         if (index >= 0 && index < users.size()) {
             users.erase(users.begin() + index);
             std::cout << "User deleted." << std::endl;
@@ -69,8 +67,9 @@ public:
             std::cout << "list empty"<< std::endl << std::endl;
             return;
         }
-        for (int i = 0; i < users.size(); i++) {
-            std::cout << "User " << i + 1 << ": " << users[i].getName() << ", " << users[i].getAge() << " years old, " << users[i].getWeight() << " kg" << std::endl;
+        else{
+            std::cout << users[0].getName() << std::endl << std::endl;
+            return;
         }
     }
 
