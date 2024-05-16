@@ -30,22 +30,6 @@ private:
     std::vector<User> users;
 
 public:
-    void addUserFromInput(int &countUsers) {
-        std::string name;
-        int age, height;
-        float weight;
-        std::cout << "Enter name: ";
-        std::cin >> name;
-        std::cout << "Enter age: ";
-        std::cin >> age;
-        std::cout << "Enter height (in centimetre): ";
-        std::cin >> height;
-        std::cout << "Enter Weight (в kg): ";
-        std::cin >> weight;
-        User newUser(name, age, height, weight);
-        users.push_back(newUser);
-        countUsers++;
-    }
 
     void deleteUser() {
         for (int i = 0; i < users.size(); i++) {

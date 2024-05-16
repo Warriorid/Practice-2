@@ -1,3 +1,11 @@
+#ifndef PRACTICE_2_USERFUNC
+#define PRACTICE_2_USERFUNC
+
+
+#include <SFML/Graphics.hpp>
 #include "users.h"
-void calling_functions(UsersModule&, int&);
-void window(UsersModule& user, int& countUsers);
+
+std::vector<std::string> addUser();
+
+
+#endif

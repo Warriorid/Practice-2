@@ -4,6 +4,6 @@
 int main() {
     int countUsers = 0;
     UsersModule usersModule;
-    window(usersModule, countUsers);
+    menu(usersModule, countUsers);
     return 0;
 }

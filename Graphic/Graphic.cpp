@@ -40,7 +40,7 @@ void menu(UsersModule& user, int& countUsers) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
-                    //ConvertInputDate();
+                    addUser();
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
                     user.deleteUser(); // Предполагается, что в UsersModule есть функция deleteUser
                 }
