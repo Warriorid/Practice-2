@@ -3,33 +3,43 @@
 
 void menu(UsersModule& user, int& countUsers) {
     sf::Texture backgroundTexture;
-    if (!backgroundTexture.loadFromFile("image1.jpg")) {
+    if (!backgroundTexture.loadFromFile("img.png")) {
         return;
     }
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Fitness Assistant/Menu ");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant/Menu ");
 
     // Кнопка "Add User"
     sf::RectangleShape buttonAddUser(sf::Vector2f(200, 50));
     buttonAddUser.setPosition(300, 50);
-    buttonAddUser.setFillColor(sf::Color(0, 0, 0, 200));
+    buttonAddUser.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Delete User"
     sf::RectangleShape buttonDeleteUser(sf::Vector2f(200, 50));
     buttonDeleteUser.setPosition(300, 150);
-    buttonDeleteUser.setFillColor(sf::Color(0, 0, 0, 200));
+    buttonDeleteUser.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Display Users"
     sf::RectangleShape buttonDisplayUsers(sf::Vector2f(200, 50));
     buttonDisplayUsers.setPosition(300, 250);
-    buttonDisplayUsers.setFillColor(sf::Color(0, 0, 0, 200));
+    buttonDisplayUsers.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Add Date of Day"
     sf::RectangleShape buttonAddDateOfDay(sf::Vector2f(200, 50));
     buttonAddDateOfDay.setPosition(300, 350);
-    buttonAddDateOfDay.setFillColor(sf::Color(0, 0, 0, 200));
+    buttonAddDateOfDay.setFillColor(sf::Color(82, 82, 82, 200));
+
+    // Кнопка "Edit User"
+    sf::RectangleShape buttonEditUser(sf::Vector2f(200, 50));
+    buttonEditUser.setPosition(300, 450);
+    buttonEditUser.setFillColor(sf::Color(82, 82, 82, 200));
+
+    // Кнопка "Statistics"
+    sf::RectangleShape buttonStatistics(sf::Vector2f(200, 50));
+    buttonStatistics.setPosition(300, 550);
+    buttonStatistics.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Шрифт
     sf::Font font;
@@ -52,6 +62,14 @@ void menu(UsersModule& user, int& countUsers) {
     textAddDateOfDay.setFont(font);
     textAddDateOfDay.setPosition(buttonAddDateOfDay.getPosition().x + 10, buttonAddDateOfDay.getPosition().y + 10);
 
+    sf::Text textEditUser("Edit User", font, 20);
+    textEditUser.setFont(font);
+    textEditUser.setPosition(buttonEditUser.getPosition().x + 50, buttonEditUser.getPosition().y + 10);
+
+    sf::Text textStatistics("Statistics", font, 20);
+    textStatistics.setFont(font);
+    textStatistics.setPosition(buttonStatistics.getPosition().x + 40, buttonStatistics.getPosition().y + 10);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -67,6 +85,10 @@ void menu(UsersModule& user, int& countUsers) {
                     user.displayUsers();
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
                     //add_date_of_day(); // Вызов функции add_date_of_day
+                } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
+                    user.editUser(); // Вызов функции editUser
+                } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
+                    //statistics(); // Вызов функции statistics
                 }
             }
         }
@@ -81,6 +103,10 @@ void menu(UsersModule& user, int& countUsers) {
         window.draw(textDisplayUsers);
         window.draw(buttonAddDateOfDay);
         window.draw(textAddDateOfDay);
+        window.draw(buttonEditUser);
+        window.draw(textEditUser);
+        window.draw(buttonStatistics);
+        window.draw(textStatistics);
         window.display();
     }
 }

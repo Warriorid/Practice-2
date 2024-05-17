@@ -5,11 +5,11 @@
 
 std::vector<std::string> addUser() {
     // Create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Fitness Assistant");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
     // Input field configuration
     sf::Texture backgroundTexture;
-    backgroundTexture.loadFromFile("image1.jpg");
+    backgroundTexture.loadFromFile("img.png");
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
