@@ -75,20 +75,20 @@ std::vector<std::string> addUser() {
     buttonText.setPosition(inputField5.getPosition().x + 5, inputField5.getPosition().y + 5);
 
     // Text labels for input fields
-    sf::Text label1("Name:", font, 20);
-    label1.setFillColor(sf::Color::White);
+    sf::Text label1("Name:", font, 30);
+    label1.setFillColor(sf::Color::Black);
     label1.setPosition(centerX - label1.getGlobalBounds().width / 2, inputField1.getPosition().y - 35);
 
-    sf::Text label2("Age:", font, 20);
-    label2.setFillColor(sf::Color::White);
+    sf::Text label2("Age:", font, 30);
+    label2.setFillColor(sf::Color::Black);
     label2.setPosition(centerX - label2.getGlobalBounds().width / 2, inputField2.getPosition().y - 35);
 
-    sf::Text label3("Height:", font, 20);
-    label3.setFillColor(sf::Color::White);
+    sf::Text label3("Height:", font, 30);
+    label3.setFillColor(sf::Color::Black);
     label3.setPosition(centerX - label3.getGlobalBounds().width / 2, inputField3.getPosition().y - 35);
 
-    sf::Text label4("Weight:", font, 20);
-    label4.setFillColor(sf::Color::White);
+    sf::Text label4("Weight:", font, 30);
+    label4.setFillColor(sf::Color::Black);
     label4.setPosition(centerX - label4.getGlobalBounds().width / 2, inputField4.getPosition().y - 35);
 
     // Input string storage
