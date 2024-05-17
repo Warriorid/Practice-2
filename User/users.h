@@ -82,6 +82,6 @@ public:
 //    }
 
 void addUser(User & man, int& countUsers);
-void Delete();
+void Delete(User & man, int& countUsers);
 #endif
 

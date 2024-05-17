@@ -98,7 +98,7 @@ void menu(User & man, int& countUsers) {
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
                     addUser(man, countUsers);
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
-                    //user.deleteUser();
+                    Delete(man, countUsers);
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
                     //user.displayUsers();
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {

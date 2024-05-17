@@ -16,6 +16,10 @@ void addUser(User & man, int& countUsers){
 
 }
 
-void Delete(){
-
+void Delete(User & man, int& countUsers){
+    countUsers = 0;
+    man.setName("-");
+    man.setAge(0);
+    man.setHeight(0);
+    man.setWeight(0.0);
 }
