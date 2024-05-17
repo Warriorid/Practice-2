@@ -1,9 +1,9 @@
-#include "User/userFunc.h"
+#include "User/users.h"
 #include "Graphic/Graphic.h"
 
 int main() {
     int countUsers = 0;
-    UsersModule usersModule;
-    menu(usersModule, countUsers);
+    User man;
+    menu(countUsers);
     return 0;
 }

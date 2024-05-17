@@ -1,7 +1,7 @@
 #include "Graphic.h"
 
 
-void menu(UsersModule& user, int& countUsers) {
+void menu( int& countUsers) {
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("img.png")) {
         return;
@@ -96,15 +96,15 @@ void menu(UsersModule& user, int& countUsers) {
             } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
-                    //addUser();
+                    addUser();
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
-                    user.deleteUser();
+                    //user.deleteUser();
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
-                    user.displayUsers();
+                    //user.displayUsers();
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
                     //add_date_of_day(); // Вызов функции add_date_of_day
                 } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
-                    user.editUser(); // Вызов функции editUser
+                    //user.editUser(); // Вызов функции editUser
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
                     //statistics(); // Вызов функции statistics
                 } else if (buttonExit.getGlobalBounds().contains(mousePos)) {
