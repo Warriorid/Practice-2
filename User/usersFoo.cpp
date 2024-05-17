@@ -3,21 +3,20 @@
 #include "userFunc.h"
 
 
-std::vector<std::string> addUser() {
-    // Create the window
+std::vector<std::string> getDate() {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
-    // Input field configuration
+
     sf::Texture backgroundTexture;
     backgroundTexture.loadFromFile("img.png");
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
-    // Calculate center of the window
+
     float centerX = window.getSize().x / 2.0f;
     float centerY = window.getSize().y / 2.0f;
 
-    // Input fields (centered)
+
     sf::RectangleShape inputField1(sf::Vector2f(200, 30));
     inputField1.setFillColor(sf::Color(82, 82, 82, 200));
     inputField1.setOutlineColor(sf::Color::Black);
@@ -48,7 +47,7 @@ std::vector<std::string> addUser() {
     inputField5.setOutlineThickness(2);
     inputField5.setPosition(centerX - inputField5.getSize().x / 2, centerY + 200);
 
-    // Font and text
+
     sf::Font font;
     if (!font.loadFromFile("Arial_Black.ttf")) {
         std::cerr << "Failed to load font!" << std::endl;
@@ -74,7 +73,7 @@ std::vector<std::string> addUser() {
     buttonText.setFillColor(sf::Color::White);
     buttonText.setPosition(inputField5.getPosition().x + 5, inputField5.getPosition().y + 5);
 
-    // Text labels for input fields
+
     sf::Text label1("Name:", font, 30);
     label1.setFillColor(sf::Color::Black);
     label1.setPosition(centerX - label1.getGlobalBounds().width / 2, inputField1.getPosition().y - 35);
@@ -91,20 +90,18 @@ std::vector<std::string> addUser() {
     label4.setFillColor(sf::Color::Black);
     label4.setPosition(centerX - label4.getGlobalBounds().width / 2, inputField4.getPosition().y - 35);
 
-    // Input string storage
+
     std::string inputString1, inputString2, inputString3, inputString4;
     std::vector<std::string> values;
 
-    // Input field handling
+
     bool inputField1Active = true;
     bool inputField2Active = false;
     bool inputField3Active = false;
     bool inputField4Active = false;
 
-    // Button state
     bool donePressed = false;
 
-    // Main loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -141,33 +138,33 @@ std::vector<std::string> addUser() {
                 }
             } else if (event.type == sf::Event::TextEntered) {
                 if (inputField1Active) {
-                    if (event.text.unicode == 8 && !inputString1.empty())  // Backspace
+                    if (event.text.unicode == 8 && !inputString1.empty())
                         inputString1.pop_back();
-                    else if (event.text.unicode == 13) // Enter
+                    else if (event.text.unicode == 13)
                         inputField1Active = false;
                     else
                         inputString1 += static_cast<char>(event.text.unicode);
                     text1.setString(inputString1);
                 } else if (inputField2Active) {
-                    if (event.text.unicode == 8 && !inputString2.empty())  // Backspace
+                    if (event.text.unicode == 8 && !inputString2.empty())
                         inputString2.pop_back();
-                    else if (event.text.unicode == 13) // Enter
+                    else if (event.text.unicode == 13)
                         inputField2Active = false;
                     else
                         inputString2 += static_cast<char>(event.text.unicode);
                     text2.setString(inputString2);
                 } else if (inputField3Active) {
-                    if (event.text.unicode == 8 && !inputString3.empty())  // Backspace
+                    if (event.text.unicode == 8 && !inputString3.empty())
                         inputString3.pop_back();
-                    else if (event.text.unicode == 13) // Enter
+                    else if (event.text.unicode == 13)
                         inputField3Active = false;
                     else
                         inputString3 += static_cast<char>(event.text.unicode);
                     text3.setString(inputString3);
                 } else if (inputField4Active) {
-                    if (event.text.unicode == 8 && !inputString4.empty())  // Backspace
+                    if (event.text.unicode == 8 && !inputString4.empty())
                         inputString4.pop_back();
-                    else if (event.text.unicode == 13) // Enter
+                    else if (event.text.unicode == 13)
                         inputField4Active = false;
                     else
                         inputString4 += static_cast<char>(event.text.unicode);
@@ -176,18 +173,17 @@ std::vector<std::string> addUser() {
             }
         }
 
-        // Process button press
+
         if (donePressed) {
             values.push_back(inputString1);
             values.push_back(inputString2);
             values.push_back(inputString3);
             values.push_back(inputString4);
             donePressed = false;
-            window.close(); // Close the window when "Done" is pressed
+            window.close();
             return values;
         }
 
-        // Draw elements
         window.clear(sf::Color::White);
         window.draw(backgroundSprite);
         window.draw(inputField1);

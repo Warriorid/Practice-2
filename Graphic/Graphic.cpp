@@ -96,7 +96,7 @@ void menu(UsersModule& user, int& countUsers) {
             } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
-                    addUser();
+                    //addUser();
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
                     user.deleteUser();
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {

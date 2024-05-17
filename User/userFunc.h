@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "users.h"
 
-std::vector<std::string> addUser();
+std::vector<std::string> getDate();
 
 
 #endif
