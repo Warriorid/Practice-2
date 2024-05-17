@@ -11,35 +11,49 @@ void menu(UsersModule& user, int& countUsers) {
 
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant/Menu ");
 
+    // Calculate center of the window
+    float centerX = window.getSize().x / 2.0f;
+    float centerY = window.getSize().y / 2.0f;
+
+    // Button dimensions and spacing
+    float buttonWidth = 200;
+    float buttonHeight = 50;
+    float buttonSpacing = 40; // Adjust this for button spacing
+
     // Кнопка "Add User"
-    sf::RectangleShape buttonAddUser(sf::Vector2f(200, 50));
-    buttonAddUser.setPosition(300, 50);
+    sf::RectangleShape buttonAddUser(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonAddUser.setPosition(centerX - buttonWidth / 2, centerY - 250);
     buttonAddUser.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Delete User"
-    sf::RectangleShape buttonDeleteUser(sf::Vector2f(200, 50));
-    buttonDeleteUser.setPosition(300, 150);
+    sf::RectangleShape buttonDeleteUser(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonDeleteUser.setPosition(centerX - buttonWidth / 2, buttonAddUser.getPosition().y + buttonHeight + buttonSpacing);
     buttonDeleteUser.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Display Users"
-    sf::RectangleShape buttonDisplayUsers(sf::Vector2f(200, 50));
-    buttonDisplayUsers.setPosition(300, 250);
+    sf::RectangleShape buttonDisplayUsers(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonDisplayUsers.setPosition(centerX - buttonWidth / 2, buttonDeleteUser.getPosition().y + buttonHeight + buttonSpacing);
     buttonDisplayUsers.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Add Date of Day"
-    sf::RectangleShape buttonAddDateOfDay(sf::Vector2f(200, 50));
-    buttonAddDateOfDay.setPosition(300, 350);
+    sf::RectangleShape buttonAddDateOfDay(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonAddDateOfDay.setPosition(centerX - buttonWidth / 2, buttonDisplayUsers.getPosition().y + buttonHeight + buttonSpacing);
     buttonAddDateOfDay.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Edit User"
-    sf::RectangleShape buttonEditUser(sf::Vector2f(200, 50));
-    buttonEditUser.setPosition(300, 450);
+    sf::RectangleShape buttonEditUser(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonEditUser.setPosition(centerX - buttonWidth / 2, buttonAddDateOfDay.getPosition().y + buttonHeight + buttonSpacing);
     buttonEditUser.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Кнопка "Statistics"
-    sf::RectangleShape buttonStatistics(sf::Vector2f(200, 50));
-    buttonStatistics.setPosition(300, 550);
+    sf::RectangleShape buttonStatistics(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonStatistics.setPosition(centerX - buttonWidth / 2, buttonEditUser.getPosition().y + buttonHeight + buttonSpacing);
     buttonStatistics.setFillColor(sf::Color(82, 82, 82, 200));
+
+    // Кнопка "Exit"
+    sf::RectangleShape buttonExit(sf::Vector2f(buttonWidth, buttonHeight));
+    buttonExit.setPosition(centerX - buttonWidth / 2, buttonStatistics.getPosition().y + buttonHeight + buttonSpacing);
+    buttonExit.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Шрифт
     sf::Font font;
@@ -70,6 +84,10 @@ void menu(UsersModule& user, int& countUsers) {
     textStatistics.setFont(font);
     textStatistics.setPosition(buttonStatistics.getPosition().x + 40, buttonStatistics.getPosition().y + 10);
 
+    sf::Text textExit("Exit", font, 20);
+    textExit.setFont(font);
+    textExit.setPosition(buttonExit.getPosition().x + 80, buttonExit.getPosition().y + 10);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -89,6 +107,8 @@ void menu(UsersModule& user, int& countUsers) {
                     user.editUser(); // Вызов функции editUser
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
                     //statistics(); // Вызов функции statistics
+                } else if (buttonExit.getGlobalBounds().contains(mousePos)) {
+                    exit(0);
                 }
             }
         }
@@ -107,6 +127,8 @@ void menu(UsersModule& user, int& countUsers) {
         window.draw(textEditUser);
         window.draw(buttonStatistics);
         window.draw(textStatistics);
+        window.draw(buttonExit);
+        window.draw(textExit);
         window.display();
     }
 }
