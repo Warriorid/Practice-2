@@ -31,55 +31,7 @@ public:
 
 
 
-//    void deleteUser() {
-//        for (int i = 0; i < users.size(); i++) {
-//            std::cout << i << " - " << users[i].getName() << std::endl;
-//        }
-//        int index;
-//        std::cout << "Enter number of user: ";
-//        std::cin >> index;
-//        if (index >= 0 && index < users.size()) {
-//            users.erase(users.begin() + index);
-//            std::cout << "User deleted." << std::endl;
-//        } else {
-//            std::cout << "Error index." << std::endl;
-//        }
-//    }
-//
-//    void displayUsers() {
-//        if(users.size()==0){
-//            std::cout << "list empty"<< std::endl << std::endl;
-//            return;
-//        }
-//        else{
-//            std::cout << users[0].getName() << std::endl << std::endl;
-//            return;
-//        }
-//    }
-//
-//    void editUser(){
-//        for (int i = 0; i < users.size(); i++) {
-//            std::cout << i << " - " << users[i].getName() << std::endl;
-//        }
-//        std::cout << "Enter index of user: ";
-//        int index, Age, Height;
-//        std::string Name;
-//        float Weight;
-//        std::cin >> index;
-//        std::cout << "Enter name: ";
-//        std::cin >> Name;
-//        std::cout << "Enter age: ";
-//        std::cin >> Age;
-//        std::cout << "Enter height (in centimetre): ";
-//        std::cin >> Height;
-//        std::cout << "Enter Weight (в kg): ";
-//        std::cin >> Weight;
-//        if (index >= 0 && index < users.size()) {
-//            users[index].setName(Name);
-//            users[index].setAge(Age);
-//            users[index].setWeight(Weight);
-//        }
-//    }
+
 
 void addUser(User & man, int& countUsers);
 void Delete(User & man, int& countUsers);
