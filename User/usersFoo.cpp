@@ -4,7 +4,7 @@
 #include "../Tool/tools.h"
 
 void addUser(User & man, int& countUsers){
-
+    if (countUsers==1){return;}
     std::vector<std::string> values;
     values = getDate();
     man.setName(values[0]);

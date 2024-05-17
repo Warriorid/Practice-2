@@ -213,6 +213,10 @@ void recordedToFile(User & man, int & countUsers) {
         return;
     }
     file << countUsers << '\n';
+    file << man.getName() << '\n';
+    file << man.getAge() << '\n';
+    file << man.getHeight() << '\n';
+    file << man.getWeight() << '\n';
 
 
     file.close();
