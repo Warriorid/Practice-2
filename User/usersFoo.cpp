@@ -4,7 +4,55 @@
 #include "../Tool/tools.h"
 
 void addUser(User & man, int& countUsers){
-    if (countUsers==1){return;}
+    if (countUsers==1){
+            sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
+
+            sf::Font font;
+            if (!font.loadFromFile("Arial_Black.ttf")) {
+                return;
+            }
+        sf::Texture backgroundTexture;
+        if (!backgroundTexture.loadFromFile("image4.png")) {
+            return;
+        }
+        sf::Sprite backgroundSprite;
+        backgroundSprite.setTexture(backgroundTexture);
+            sf::Text text("Sorry, but the user has already been added, delete or edit the current one", font, 30);
+            text.setFillColor(sf::Color::White);
+            text.setPosition(window.getSize().x / 2.f - text.getGlobalBounds().width / 2.f, window.getSize().y / 2.f - text.getGlobalBounds().height / 2.f);
+
+            // Кнопка "Done"
+            sf::RectangleShape button(sf::Vector2f(100.f, 40.f));
+            button.setFillColor(sf::Color(82, 82, 82, 200));
+            button.setPosition(window.getSize().x / 2.f - button.getSize().x / 2.f, window.getSize().y / 2.f + text.getGlobalBounds().height + 20.f);
+
+            sf::Text buttonText("Done", font, 20);
+            buttonText.setFillColor(sf::Color::White);
+            buttonText.setPosition(button.getPosition().x + button.getSize().x / 2.f - buttonText.getGlobalBounds().width / 2.f,
+                                   button.getPosition().y + button.getSize().y / 2.f - buttonText.getGlobalBounds().height / 2.f);
+
+            while (window.isOpen()) {
+                sf::Event event;
+                while (window.pollEvent(event)) {
+                    if (event.type == sf::Event::Closed) {
+                        window.close();
+                    } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                        sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                        if (button.getGlobalBounds().contains(mousePos)) {
+                            window.close();
+                        }
+                    }
+                }
+
+                window.clear(sf::Color::White);
+                window.draw(backgroundSprite);
+                window.draw(text);
+                window.draw(button);
+                window.draw(buttonText);
+                window.display();
+            }
+            return;
+        }
     std::vector<std::string> values;
     values = getDate();
     man.setName(values[0]);
@@ -23,6 +71,52 @@ void Delete(User & man, int& countUsers){
     man.setHeight(0);
     man.setWeight(0.0);
     recordedToFile(man, countUsers);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
+
+    sf::Font font;
+    if (!font.loadFromFile("Arial_Black.ttf")) {
+        return;
+    }
+    sf::Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("image4.png")) {
+        return;
+    }
+    sf::Sprite backgroundSprite;
+    backgroundSprite.setTexture(backgroundTexture);
+    sf::Text text("The user has been successfully deleted", font, 30);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(window.getSize().x / 2.f - text.getGlobalBounds().width / 2.f, window.getSize().y / 2.f - text.getGlobalBounds().height / 2.f);
+
+    // Кнопка "Done"
+    sf::RectangleShape button(sf::Vector2f(100.f, 40.f));
+    button.setFillColor(sf::Color(82, 82, 82, 200));
+    button.setPosition(window.getSize().x / 2.f - button.getSize().x / 2.f, window.getSize().y / 2.f + text.getGlobalBounds().height + 20.f);
+
+    sf::Text buttonText("Done", font, 20);
+    buttonText.setFillColor(sf::Color::White);
+    buttonText.setPosition(button.getPosition().x + button.getSize().x / 2.f - buttonText.getGlobalBounds().width / 2.f,
+                           button.getPosition().y + button.getSize().y / 2.f - buttonText.getGlobalBounds().height / 2.f);
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                if (button.getGlobalBounds().contains(mousePos)) {
+                    window.close();
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+        window.draw(backgroundSprite);
+        window.draw(text);
+        window.draw(button);
+        window.draw(buttonText);
+        window.display();
+    }
 }
 
 void DisplayUser(User & man, int& countUsers) {
@@ -81,7 +175,7 @@ void DisplayUser(User & man, int& countUsers) {
         }
 
         window.clear(sf::Color::White);
-        window.draw(backgroundSprite); // Отрисовка фона
+        window.draw(backgroundSprite);
         window.draw(textName);
         window.draw(textAge);
         window.draw(textHeight);

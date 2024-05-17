@@ -1,0 +1,9 @@
+
+#ifndef PRACTICE_2_CALORIES_H
+#define PRACTICE_2_CALORIES_H
+
+
+
+
+
+#endif //PRACTICE_2_CALORIES_H
