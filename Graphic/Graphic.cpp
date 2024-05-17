@@ -1,7 +1,7 @@
 #include "Graphic.h"
 
 
-void menu( int& countUsers) {
+void menu() {
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("img.png")) {
         return;
