@@ -7,5 +7,10 @@ void addUser(User & man){
 
     std::vector<std::string> values;
     values = getDate();
+    man.setName(values[0]);
+    man.setAge(std::stoi(values[1]));
+    man.setHeight(std::stoi(values[2]));
+    man.setWeight(std::stod(values[3]));
+
 
 }

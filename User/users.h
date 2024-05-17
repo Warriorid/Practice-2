@@ -18,7 +18,7 @@ public:
     User(std::string n, int a, int b, float w) : name(n), age(a), height(b), weight(w) {}
     User(){name = "-"; age = 0; height=0; weight=0; }
     std::string getName() { return name; }
-    void setName(std::string n) { name = n; }
+    void setName(const std::string n) { name = n; }
     int getAge() { return age; }
     void setAge(int a) { age = a; }
     int getHeight() { return height; }
