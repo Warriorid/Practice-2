@@ -203,3 +203,17 @@ std::vector<std::string> getDate() {
         window.display();
     }
 }
+
+
+void recordedToFile(User & man, int & countUsers) {
+
+    std::ofstream file("date_about_user.txt", std::ios::out);
+    if (!file.is_open()) {
+        std::cerr << "Error opening file." << std::endl;
+        return;
+    }
+    file << countUsers << '\n';
+
+
+    file.close();
+}

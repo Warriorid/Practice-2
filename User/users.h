@@ -81,6 +81,6 @@ public:
 //        }
 //    }
 
-void addUser(User & man);
+void addUser(User & man, int& countUsers);
 #endif
 
