@@ -15,3 +15,7 @@ void addUser(User & man, int& countUsers){
     recordedToFile(man, countUsers);
 
 }
+
+void Delete(){
+
+}

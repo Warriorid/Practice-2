@@ -8,7 +8,7 @@ std::vector<std::string> getDate() {
 
 
     sf::Texture backgroundTexture;
-    backgroundTexture.loadFromFile("img.png");
+    backgroundTexture.loadFromFile("i2.png");
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
