@@ -26,6 +26,11 @@ void menu(UsersModule& user, int& countUsers) {
     buttonDisplayUsers.setPosition(300, 250);
     buttonDisplayUsers.setFillColor(sf::Color(0, 0, 0, 200));
 
+    // Кнопка "Add Date of Day"
+    sf::RectangleShape buttonAddDateOfDay(sf::Vector2f(200, 50));
+    buttonAddDateOfDay.setPosition(300, 350);
+    buttonAddDateOfDay.setFillColor(sf::Color(0, 0, 0, 200));
+
     // Шрифт
     sf::Font font;
     if (!font.loadFromFile("Arial_Black.ttf")) return;
@@ -39,9 +44,13 @@ void menu(UsersModule& user, int& countUsers) {
     textDeleteUser.setFont(font);
     textDeleteUser.setPosition(buttonDeleteUser.getPosition().x + 25, buttonDeleteUser.getPosition().y + 10);
 
-    sf::Text textDisplayUsers("Display User", font, 20);
+    sf::Text textDisplayUsers("Display Users", font, 20);
     textDisplayUsers.setFont(font);
     textDisplayUsers.setPosition(buttonDisplayUsers.getPosition().x + 25, buttonDisplayUsers.getPosition().y + 10);
+
+    sf::Text textAddDateOfDay("Add Date of Day", font, 20);
+    textAddDateOfDay.setFont(font);
+    textAddDateOfDay.setPosition(buttonAddDateOfDay.getPosition().x + 10, buttonAddDateOfDay.getPosition().y + 10);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -55,7 +64,9 @@ void menu(UsersModule& user, int& countUsers) {
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
                     user.deleteUser();
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
-                    user.displayUsers(); // Вызов функции displayUsers
+                    user.displayUsers();
+                } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
+                    //add_date_of_day(); // Вызов функции add_date_of_day
                 }
             }
         }
@@ -68,6 +79,8 @@ void menu(UsersModule& user, int& countUsers) {
         window.draw(textDeleteUser);
         window.draw(buttonDisplayUsers);
         window.draw(textDisplayUsers);
+        window.draw(buttonAddDateOfDay);
+        window.draw(textAddDateOfDay);
         window.display();
     }
 }
