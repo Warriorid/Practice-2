@@ -3,7 +3,7 @@
 
 void menu(User & man, int& countUsers) {
     sf::Texture backgroundTexture;
-    if (!backgroundTexture.loadFromFile("img.png")) {
+    if (!backgroundTexture.loadFromFile("i1.png")) {
         return;
     }
     sf::Sprite backgroundSprite;
@@ -68,7 +68,7 @@ void menu(User & man, int& countUsers) {
     textDeleteUser.setFont(font);
     textDeleteUser.setPosition(buttonDeleteUser.getPosition().x + 25, buttonDeleteUser.getPosition().y + 10);
 
-    sf::Text textDisplayUsers("Display Users", font, 20);
+    sf::Text textDisplayUsers("Display User", font, 20);
     textDisplayUsers.setFont(font);
     textDisplayUsers.setPosition(buttonDisplayUsers.getPosition().x + 25, buttonDisplayUsers.getPosition().y + 10);
 
