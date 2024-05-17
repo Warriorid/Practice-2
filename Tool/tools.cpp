@@ -204,12 +204,38 @@ std::vector<std::string> getDate() {
     }
 }
 
+void readFile(User & man, int & countUsers){
+    std::ifstream file("date_about_user.txt");
+    if (!file.is_open()) {
+        return;
+    }
+    file >> countUsers;
+    file.ignore();
+    std::string name;
+    std::getline(file, name);
+    man.setName(name);
+
+    int age;
+    file >> age;
+    man.setAge(age);
+
+    int Height;
+    file >> Height;
+    man.setHeight(Height);
+
+    double Weight;
+    file >> Weight;
+    man.setWeight(Weight);
+
+    file.close();
+}
+
+
 
 void recordedToFile(User & man, int & countUsers) {
 
     std::ofstream file("date_about_user.txt", std::ios::out);
     if (!file.is_open()) {
-        std::cerr << "Error opening file." << std::endl;
         return;
     }
     file << countUsers << '\n';
