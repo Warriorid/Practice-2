@@ -1,7 +1,7 @@
 #include "Graphic.h"
 
 
-void menu() {
+void menu(User & man) {
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("img.png")) {
         return;
@@ -96,7 +96,7 @@ void menu() {
             } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
-                    addUser();
+                    addUser( man );
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
                     //user.deleteUser();
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {

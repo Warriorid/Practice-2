@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-void addUser();
+
 
 class User {
 private:
@@ -81,6 +81,6 @@ public:
 //        }
 //    }
 
-
+void addUser(User & man);
 #endif
 

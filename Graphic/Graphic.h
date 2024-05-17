@@ -2,6 +2,6 @@
 #define PRACTICE_2_GRAPHIC_H
 #include <SFML/Graphics.hpp>
 #include "../User/users.h"
-void menu();
+void menu(User & man);
 
 #endif //PRACTICE_2_GRAPHIC_H

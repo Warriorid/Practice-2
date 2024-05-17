@@ -4,6 +4,6 @@
 int main() {
     int countUsers = 0;
     User man;
-    menu();
+    menu(man);
     return 0;
 }
