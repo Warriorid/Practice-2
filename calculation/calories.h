@@ -3,6 +3,7 @@
 #define PRACTICE_2_CALORIES_H
 #include <SFML/Graphics.hpp>
 void inputDate();
+void statistic();
 
 
 

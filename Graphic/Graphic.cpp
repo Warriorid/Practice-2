@@ -106,7 +106,7 @@ void menu(User & man, int& countUsers) {
                 } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
                     EditUser(man, countUsers); // Вызов функции editUser
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
-                    //statistics(); // Вызов функции statistics
+                    statistic(); // Вызов функции statistics
                 } else if (buttonExit.getGlobalBounds().contains(mousePos)) {
                     exit(0);
                 }
