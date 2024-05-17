@@ -92,3 +92,15 @@ void DisplayUser(User & man, int& countUsers) {
     }
 }
 
+void EditUser(User & man, int& countUsers){
+    countUsers = 0;
+    std::vector<std::string> values;
+    values = getDate();
+    man.setName(values[0]);
+    man.setAge(std::stoi(values[1]));
+    man.setHeight(std::stoi(values[2]));
+    man.setWeight(std::stod(values[3]));
+    countUsers++;
+    recordedToFile(man, countUsers);
+}
+
