@@ -83,5 +83,6 @@ public:
 
 void addUser(User & man, int& countUsers);
 void Delete(User & man, int& countUsers);
+void DisplayUser(User & man, int& countUsers);
 #endif
 
