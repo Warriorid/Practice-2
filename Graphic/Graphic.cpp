@@ -1,5 +1,6 @@
 #include "Graphic.h"
 #include "../User/usersFoo.h"
+#include "..//calculation/caloriesFunc.h"
 
 
 void menu(User & man, int& countUsers, int &day, Calories calories) {

@@ -23,10 +23,5 @@ public:
     void setSpentCalories(std::vector<double> s) { spentCalories = s; }
 };
 
-void statistic();
-
-void add_date_of_day(int & day, int& countUsers, Calories& calories);
-
-void deleteCalories(Calories & calories, int& day);
 
 #endif //PRACTICE_2_CALORIES_H

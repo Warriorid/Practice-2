@@ -1,6 +1,7 @@
 #include "User/users.h"
 #include "Graphic/Graphic.h"
 #include "Tool/tools.h"
+#include "calculation/caloriesFunc.h"
 
 int main() {
     int day = 0;

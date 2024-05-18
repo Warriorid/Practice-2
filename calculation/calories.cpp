@@ -1,5 +1,6 @@
 
 #include "calories.h"
+#include "caloriesFunc.h"
 
 
 void statistic() {
@@ -133,7 +134,7 @@ void add_date_of_day(int& day, int& countUsers, Calories& calories){
     std::vector<double>& receivedCalories = calories.getReceivedCalories();
     spentCalories[day - 1] = std::stod(values[0]);
     receivedCalories[day - 1] = std::stod(values[1]);
-    recordedToFileForCalories(day);
+    //recordedToFileForCalories(day, calories);
 }
 
 
