@@ -63,7 +63,7 @@ void addUser(User & man, int& countUsers){
 
 }
 
-void Delete(User & man, int& countUsers){
+void Delete(User & man, int& countUsers, int& day){
     countUsers = 0;
     man.setName("-");
     man.setAge(0);

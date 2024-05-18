@@ -3,7 +3,7 @@ project(Practice_2)
 
 set(CMAKE_CXX_STANDARD 23)
 set(SOURCE main.cpp User/usersFoo.cpp Graphic/Graphic.cpp Tool/tools.cpp calculation/calories.cpp)
-set(HEADERS User/users.h Graphic/Graphic.h Tool/tools.h calculation/calories.h)
+set(HEADERS User/users.h Graphic/Graphic.h Tool/tools.h calculation/calories.h User/usersFoo.h)
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 add_executable(Practice_2 ${SOURCE} ${HEADERS})
 target_link_libraries(Practice_2 sfml-graphics sfml-window sfml-system)
