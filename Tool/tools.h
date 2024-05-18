@@ -1,7 +1,6 @@
 
 #ifndef PRACTICE_2_TOOLS_H
 #define PRACTICE_2_TOOLS_H
-#include <iostream>
 #include<fstream>
 #include <SFML/Graphics.hpp>
 #include "../User/users.h"

@@ -1,6 +1,5 @@
 #ifndef PRACTICE_2_users
 #define PRACTICE_2_users
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,10 +26,6 @@ public:
     void setWeight(float w) { weight = w; }
 
 };
-
-
-
-
 
 
 void addUser(User & man, int& countUsers);

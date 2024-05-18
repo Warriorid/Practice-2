@@ -55,3 +55,6 @@ void statistic() {
         window.display();
     }
 }
+
+
+void add_date_of_day(int & day){}
