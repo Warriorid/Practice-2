@@ -4,6 +4,7 @@
 #include<fstream>
 #include <SFML/Graphics.hpp>
 #include "../User/users.h"
+#include "../calculation/calories.h"
 std::vector<std::string> getDate();
 void recordedToFile(User & man, int & countUsers);
 void readFile(User & man, int & countUsers);

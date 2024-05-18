@@ -131,9 +131,9 @@ void add_date_of_day(int& day, int& countUsers, Calories& calories){
     values = inputDate();
     std::vector<double>& spentCalories = calories.getSpentCalories();
     std::vector<double>& receivedCalories = calories.getReceivedCalories();
-
     spentCalories[day - 1] = std::stod(values[0]);
     receivedCalories[day - 1] = std::stod(values[1]);
+    recordedToFileForCalories(day);
 }
 
 
