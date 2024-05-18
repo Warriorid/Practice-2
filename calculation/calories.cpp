@@ -57,7 +57,7 @@ void statistic() {
 }
 
 
-void add_date_of_day(int& day, int& countUsers){
+void add_date_of_day(int& day, int& countUsers, Calories& calories){
     if(countUsers==0){
         return;}
     if (day == 30) {
@@ -126,7 +126,8 @@ void add_date_of_day(int& day, int& countUsers){
         }
         return;
     }
-    inputDate();
+    std::vector<std::string> values;
+    values = inputDate();
     day++;
     recordedToFileForCalories(day);
 }

@@ -229,7 +229,7 @@ void readFile(User & man, int & countUsers){
 }
 
 
-void inputDate(){
+std::vector<std::string> inputDate(){
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
     sf::Texture backgroundTexture;
@@ -332,7 +332,7 @@ void inputDate(){
             values.push_back(inputString2);
             donePressed = false;
             window.close();
-            //return values;
+            return values;
         }
 
         window.clear(sf::Color::White);

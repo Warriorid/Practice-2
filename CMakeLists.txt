@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.17.5)
 project(Practice_2)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 set(SOURCE main.cpp User/usersFoo.cpp Graphic/Graphic.cpp Tool/tools.cpp calculation/calories.cpp)
 set(HEADERS User/users.h Graphic/Graphic.h Tool/tools.h calculation/calories.h User/usersFoo.h)
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)

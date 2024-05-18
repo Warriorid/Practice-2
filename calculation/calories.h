@@ -25,7 +25,7 @@ public:
 
 void statistic();
 
-void add_date_of_day(int & day, int& countUsers);
+void add_date_of_day(int & day, int& countUsers, Calories& calories);
 
 void deleteCalories(Calories & calories, int& day);
 

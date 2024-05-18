@@ -7,7 +7,7 @@
 std::vector<std::string> getDate();
 void recordedToFile(User & man, int & countUsers);
 void readFile(User & man, int & countUsers);
-void inputDate();
+std::vector<std::string> inputDate();
 void readFileForCalories(int & day);
 void recordedToFileForCalories(int & day);
 
