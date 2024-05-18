@@ -7,8 +7,8 @@ const int max_day = 30;
 
 class Calories {
 private:
-    std::vector<int> receivedCalories; // Более информативное имя
-    std::vector<int> spentCalories;
+    std::vector<double> receivedCalories; // Более информативное имя
+    std::vector<double> spentCalories;
 
 public:
     Calories() {
@@ -16,11 +16,11 @@ public:
         spentCalories.resize(max_day, 0);
     }
 
-    std::vector<int> getReceivedCalories() const { return receivedCalories; }
-    std::vector<int> getSpentCalories() const { return spentCalories; }
+    std::vector<double>& getReceivedCalories() { return receivedCalories; }
+    std::vector<double>& getSpentCalories() { return spentCalories; }
 
-    void setReceivedCalories(std::vector<int> g) { receivedCalories = g; }
-    void setSpentCalories(std::vector<int> s) { spentCalories = s; }
+    void setReceivedCalories(std::vector<double> g) { receivedCalories = g; }
+    void setSpentCalories(std::vector<double> s) { spentCalories = s; }
 };
 
 void statistic();
