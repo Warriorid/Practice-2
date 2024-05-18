@@ -6,9 +6,9 @@ int main() {
     int day = 0;
     int countUsers = 0;
     User man;
-    //Calories calories;
+    Calories calories;
     readFile(man, countUsers);
     readFileForCalories(day);
-    menu(man, countUsers, day);
+    menu(man, countUsers, day, calories);
     return 0;
 }

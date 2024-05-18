@@ -136,7 +136,7 @@ void add_date_of_day(int& day, int& countUsers){
 void deleteCalories(Calories & calories, int& day){
     day = 0;
     for(int i = 0; i < 30;i++) {
-        calories.get_getCalorie()[i] = 0;
-        calories.get_spentCalorie()[i] = 0;
+        calories.getReceivedCalories()[i] = 0;
+        calories.getSpentCalories()[i] = 0;
     }
 }

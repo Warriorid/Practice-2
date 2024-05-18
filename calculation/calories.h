@@ -3,26 +3,25 @@
 #define PRACTICE_2_CALORIES_H
 #include "../Tool/tools.h"
 
+const int max_day = 30;
 
-class Calories{
+class Calories {
 private:
-    std::vector<int> getCalories;
+    std::vector<int> receivedCalories; // Более информативное имя
     std::vector<int> spentCalories;
-    const int max_day = 30;
+
 public:
-    Calories(){
-        for(int i = 0; i < max_day;i++) {
-            getCalories[i] = 0;
-            spentCalories[i] = 0;
-        }
+    Calories() {
+        receivedCalories.resize(max_day, 0);
+        spentCalories.resize(max_day, 0);
     }
-    std::vector<int> get_getCalorie() { return getCalories; }
-    std::vector<int> get_spentCalorie() { return spentCalories; }
-    void set_getCalorie( std::vector<int> g){ getCalories = g;}
-    void set_spentCalorie(std::vector<int> s){ spentCalories = s;}
 
+    std::vector<int> getReceivedCalories() const { return receivedCalories; }
+    std::vector<int> getSpentCalories() const { return spentCalories; }
+
+    void setReceivedCalories(std::vector<int> g) { receivedCalories = g; }
+    void setSpentCalories(std::vector<int> s) { spentCalories = s; }
 };
-
 
 void statistic();
 

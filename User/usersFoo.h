@@ -5,7 +5,7 @@
 #include "..//calculation/calories.h"
 
 void addUser(User & man, int& countUsers);
-void Delete(User & man, int& countUsers, int& day);
+void Delete(User & man, int& countUsers, int& day, Calories calories);
 void DisplayUser(User & man, int& countUsers);
 void EditUser(User & man, int& countUsers);
 

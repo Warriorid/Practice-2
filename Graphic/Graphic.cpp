@@ -2,7 +2,7 @@
 #include "../User/usersFoo.h"
 
 
-void menu(User & man, int& countUsers, int &day) {
+void menu(User & man, int& countUsers, int &day, Calories calories) {
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("i1.png")) {
         return;
@@ -99,7 +99,7 @@ void menu(User & man, int& countUsers, int &day) {
                 if (buttonAddUser.getGlobalBounds().contains(mousePos)) {
                     addUser(man, countUsers);
                 } else if (buttonDeleteUser.getGlobalBounds().contains(mousePos)) {
-                    Delete(man, countUsers, day);
+                    Delete(man, countUsers, day, calories);
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
                     DisplayUser(man, countUsers);
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
