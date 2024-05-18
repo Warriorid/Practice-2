@@ -28,6 +28,4 @@ void statistic();
 
 void add_date_of_day(int & day, int& countUsers);
 
-void deleteCalories(Calories & calories);
-
 #endif //PRACTICE_2_CALORIES_H
