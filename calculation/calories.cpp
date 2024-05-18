@@ -58,5 +58,71 @@ void statistic() {
 
 
 void add_date_of_day(int& day){
+    if (day == 30) {
+        sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
+
+        sf::Texture texture;
+        if (!texture.loadFromFile("image7.png")) {
+            return;
+        }
+
+        sf::Sprite sprite;
+        sprite.setTexture(texture);
+
+        sprite.setScale(
+                static_cast<float>(window.getSize().x) / texture.getSize().x,
+                static_cast<float>(window.getSize().y) / texture.getSize().y
+        );
+
+        sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
+        buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2,
+                               window.getSize().y - buttonDone.getSize().y - 20);
+        buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
+
+        sf::Font font;
+        if (!font.loadFromFile("Arial_Black.ttf")) {
+            return;
+        }
+
+        sf::Text textDone("Done", font, 20);
+        textDone.setFillColor(sf::Color::White); // Белый текст
+        textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
+
+        // Текст в середине экрана
+        sf::Text textMessage("Congratulations! You have achieved a 30-day fitness marathon!", font, 32);
+        textMessage.setFillColor(sf::Color::White);
+        textMessage.setPosition(window.getSize().x / 2 - textMessage.getGlobalBounds().width / 2,
+                                window.getSize().y / 2 - textMessage.getGlobalBounds().height / 2);
+
+
+        sf::RectangleShape textBackground(sf::Vector2f(textMessage.getGlobalBounds().width + 20, textMessage.getGlobalBounds().height + 10));
+        textBackground.setFillColor(sf::Color(0, 0, 0, 150));
+        textBackground.setPosition(textMessage.getPosition().x - 10, textMessage.getPosition().y - 5);
+
+        while (window.isOpen()) {
+            sf::Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                    window.close();
+                } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    if (buttonDone.getGlobalBounds().contains(mousePos)) {
+                        window.close();
+                    }
+                }
+            }
+
+            window.clear(sf::Color::White);
+
+            window.draw(sprite);
+            window.draw(buttonDone);
+            window.draw(textDone);
+            window.draw(textBackground);
+            window.draw(textMessage);
+
+            window.display();
+        }
+        return;
+    }
     inputDate();
 }

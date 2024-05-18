@@ -364,3 +364,15 @@ void recordedToFile(User & man, int & countUsers) {
 
     file.close();
 }
+
+void readFileForCalories(int & day){
+    std::ifstream file("date_about_calories.txt");
+    if (!file.is_open()) {
+        return;
+    }
+    file >> day;
+    file.ignore();
+
+    file.close();
+}
+void recordedToFileForCalories(int & day);
