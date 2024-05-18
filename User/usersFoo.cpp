@@ -65,11 +65,13 @@ void addUser(User & man, int& countUsers){
 }
 
 void Delete(User & man, int& countUsers, int& day, Calories calories){
+    deleteCalories(calories, day);
     countUsers = 0;
     man.setName("-");
     man.setAge(0);
     man.setHeight(0);
     man.setWeight(0.0);
+    deleteCalories(calories, day);
     recordedToFile(man, countUsers);
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 

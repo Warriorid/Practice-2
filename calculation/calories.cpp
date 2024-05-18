@@ -139,4 +139,5 @@ void deleteCalories(Calories & calories, int& day){
         calories.getReceivedCalories()[i] = 0;
         calories.getSpentCalories()[i] = 0;
     }
+    recordedToFileForCalories(day);
 }
