@@ -1,5 +1,6 @@
 
 #include "users.h"
+#include "usersFoo.h"
 #include "../Tool/tools.h"
 
 void addUser(User & man, int& countUsers){

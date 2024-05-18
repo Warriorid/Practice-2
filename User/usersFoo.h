@@ -2,6 +2,7 @@
 #ifndef PRACTICE_2_USERSFOO_H
 #define PRACTICE_2_USERSFOO_H
 #include "users.h"
+#include "..//calculation/calories.h"
 
 void addUser(User & man, int& countUsers);
 void Delete(User & man, int& countUsers, int& day);
