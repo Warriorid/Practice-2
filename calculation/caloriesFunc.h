@@ -10,5 +10,5 @@ void deleteCalories(Calories & calories, int& day);
 
 
 void readFileForCalories(int & day);
-void recordedToFileForCalories(int & day);
+void recordedToFileForCalories(int & day, Calories& calories);
 #endif //PRACTICE_2_CALORIESFUNC_H

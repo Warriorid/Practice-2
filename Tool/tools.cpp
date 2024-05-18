@@ -365,34 +365,5 @@ void recordedToFile(User & man, int & countUsers) {
     file.close();
 }
 
-void readFileForCalories(int & day){
-    std::ifstream file("date_about_calories.txt");
-    if (!file.is_open()) {
-        return;
-    }
-    file >> day;
-    file.ignore();
 
-    file.close();
-}
 
-void recordedToFileForCalories(int & day) {
-    std::ofstream file("date_about_calories.txt", std::ios::out);
-    if (!file.is_open()) {
-        return;
-    }
-
-    file << day << '\n';
-
-//    for (size_t i = 0; i < 30; ++i) {
-//        file << calories.getReceivedCalories()[i] << " ";
-//    }
-//    file << '\n';
-//
-//    for (size_t i = 0; i < calories.getSpentCalories().size(); ++i) {
-//        file << calories.getSpentCalories()[i] << " ";
-//    }
-//    file << '\n';
-
-    file.close();
-}
