@@ -102,7 +102,7 @@ void menu(User & man, int& countUsers, int &day) {
                 } else if (buttonDisplayUsers.getGlobalBounds().contains(mousePos)) {
                     DisplayUser(man, countUsers);
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
-                    add_date_of_day(day);
+                    add_date_of_day(day, countUsers);
                 } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
                     EditUser(man, countUsers); // Вызов функции editUser
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {

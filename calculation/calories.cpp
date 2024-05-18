@@ -57,7 +57,9 @@ void statistic() {
 }
 
 
-void add_date_of_day(int& day){
+void add_date_of_day(int& day, int& countUsers){
+    if(countUsers==0){
+        return;}
     if (day == 30) {
         sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
@@ -125,4 +127,12 @@ void add_date_of_day(int& day){
         return;
     }
     inputDate();
+    day++;
+    recordedToFileForCalories(day);
+}
+
+
+
+void deleteCalories(Calories & calories){
+
 }

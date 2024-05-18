@@ -375,4 +375,12 @@ void readFileForCalories(int & day){
 
     file.close();
 }
-void recordedToFileForCalories(int & day);
+
+void recordedToFileForCalories(int & day){
+    std::ofstream file("date_about_calories.txt", std::ios::out);
+    if (!file.is_open()) {
+        return;
+    }
+    file << day << '\n';
+
+}
