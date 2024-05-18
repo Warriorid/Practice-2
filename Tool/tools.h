@@ -9,4 +9,5 @@ void recordedToFile(User & man, int & countUsers);
 void readFile(User & man, int & countUsers);
 void inputDate();
 
+
 #endif //PRACTICE_2_TOOLS_H

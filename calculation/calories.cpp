@@ -57,4 +57,6 @@ void statistic() {
 }
 
 
-void add_date_of_day(int & day){}
+void add_date_of_day(int& day){
+    inputDate();
+}

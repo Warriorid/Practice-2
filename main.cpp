@@ -8,6 +8,6 @@ int main() {
     int countUsers = 0;
     User man;
     readFile(man, countUsers);
-    menu(man, countUsers);
+    menu(man, countUsers, day);
     return 0;
 }
