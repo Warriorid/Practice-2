@@ -9,7 +9,7 @@ int main() {
     User man;
     Calories calories;
     readFile(man, countUsers);
-    readFileForCalories(day);
+    readFileForCalories(day, calories);
     menu(man, countUsers, day, calories);
     return 0;
 }

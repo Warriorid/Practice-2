@@ -149,7 +149,7 @@ void deleteCalories(Calories & calories, int& day){
 }
 
 void recordedToFileForCalories(int & day, Calories& calories) {
-    std::ofstream file("date_about_calories.txt", std::ios::out);
+    std::ofstream file("date_about_calories.txt", std::ios::trunc);
     if (!file.is_open()) {
         return;
     }
@@ -169,13 +169,32 @@ void recordedToFileForCalories(int & day, Calories& calories) {
     file.close();
 }
 
-void readFileForCalories(int & day){
+void readFileForCalories(int &day, Calories &calories) {
     std::ifstream file("date_about_calories.txt");
     if (!file.is_open()) {
-        return;
+        return; // Файл не найден
     }
-    file >> day;
-    file.ignore();
+
+    file >> day; // Считываем день
+    file.ignore(); // Игнорируем символ новой строки
+
+    std::string line;
+    std::getline(file, line); // Считываем строку с калориями
+
+    std::istringstream iss_received(line); // Поток для receivedCalories
+    for (size_t i = 0; i < 30; ++i) {
+        double value;
+        iss_received >> value;
+        calories.getReceivedCalories()[i] = value;
+    }
+
+    std::getline(file, line); // Считываем следующую строку с калориями
+    std::istringstream iss_spent(line); // Поток для spentCalories
+    for (size_t i = 0; i < 30; ++i) {
+        double value;
+        iss_spent >> value;
+        calories.getSpentCalories()[i] = value;
+    }
 
     file.close();
 }

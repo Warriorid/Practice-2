@@ -65,6 +65,7 @@ void addUser(User & man, int& countUsers){
 }
 
 void Delete(User & man, int& countUsers, int& day, Calories calories){
+    if(countUsers==0){return;}
     deleteCalories(calories, day);
     countUsers = 0;
     man.setName("-");
