@@ -6,14 +6,13 @@
 void statistic(Calories& calories) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
+    // Загружаем фон (если он нужен)
     sf::Texture texture;
-    if (!texture.loadFromFile("image6.png")) {
+    if (!texture.loadFromFile("image8.png")) {
         return;
     }
-
     sf::Sprite sprite;
     sprite.setTexture(texture);
-
     sprite.setScale(
             static_cast<float>(window.getSize().x) / texture.getSize().x,
             static_cast<float>(window.getSize().y) / texture.getSize().y
@@ -23,16 +22,41 @@ void statistic(Calories& calories) {
     sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
     buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2,
                            window.getSize().y - buttonDone.getSize().y - 20);
-    buttonDone.setFillColor(sf::Color(82, 82, 82, 200)); // Серый цвет
+    buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
 
+    // Шрифт для текста
     sf::Font font;
     if (!font.loadFromFile("Arial_Black.ttf")) {
         return;
     }
 
+    // Текст для кнопки "Done"
     sf::Text textDone("Done", font, 20);
-    textDone.setFillColor(sf::Color::White); // Белый текст
-    textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5); // Центрируем текст на кнопке
+    textDone.setFillColor(sf::Color::White);
+    textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
+
+
+    // Фон для текста
+    sf::RectangleShape textBackground(sf::Vector2f(600, 555));
+    textBackground.setFillColor(sf::Color(255, 255, 255, 150)); // Полупрозрачный белый
+    textBackground.setPosition(window.getSize().x / 2 - textBackground.getSize().x / 2,
+                               window.getSize().y / 2 - textBackground.getSize().y / 2 - 50);
+
+    // Строка для вывода информации о калориях
+    std::string caloriesInfo = "Calories:\n";
+
+    // Цикл по дням
+    for (int day = 0; day < max_day/2; ++day) {
+        caloriesInfo += "Day " + std::to_string(day + 1) + ": ";
+        caloriesInfo += "Received - " + std::to_string(calories.getReceivedCalories()[day]) + ", ";
+        caloriesInfo += "Spent - " + std::to_string(calories.getSpentCalories()[day]) + "\n";
+    }
+
+    // Текст для отображения калорий
+    sf::Text textCalories(caloriesInfo, font, 20);
+    textCalories.setFillColor(sf::Color::Black);
+    textCalories.setPosition(window.getSize().x / 2 - textCalories.getLocalBounds().width / 2,
+                             window.getSize().y / 2 - textCalories.getLocalBounds().height / 2 - 100); // Центрируем текст
 
     while (window.isOpen()) {
         sf::Event event;
@@ -49,7 +73,16 @@ void statistic(Calories& calories) {
 
         window.clear(sf::Color::White);
 
+        // Рисуем фон (если есть)
         window.draw(sprite);
+
+        // Рисуем фон для текста
+        window.draw(textBackground);
+
+        // Рисуем текст о калориях
+        window.draw(textCalories);
+
+        // Рисуем кнопку "Done"
         window.draw(buttonDone);
         window.draw(textDone);
 
