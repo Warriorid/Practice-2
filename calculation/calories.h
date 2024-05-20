@@ -7,7 +7,7 @@ const int max_day = 30;
 
 class Calories {
 private:
-    std::vector<double> receivedCalories; // Более информативное имя
+    std::vector<double> receivedCalories;
     std::vector<double> spentCalories;
 
 public:
@@ -23,5 +23,5 @@ public:
     void setSpentCalories(std::vector<double> s) { spentCalories = s; }
 };
 
-
-#endif //PRACTICE_2_CALORIES_H
+//gkhghugkgkgygkygkuygkuygk,ygkygkuygkyg
+#endif

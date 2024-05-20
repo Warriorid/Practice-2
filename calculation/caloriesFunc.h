@@ -2,7 +2,7 @@
 #ifndef PRACTICE_2_CALORIESFUNC_H
 #define PRACTICE_2_CALORIESFUNC_H
 #include <sstream>
-void statistic();
+void statistic(Calories& calories);
 
 void add_date_of_day(int & day, int& countUsers, Calories& calories);
 

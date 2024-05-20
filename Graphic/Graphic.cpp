@@ -108,7 +108,7 @@ void menu(User & man, int& countUsers, int &day, Calories calories) {
                 } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
                     EditUser(man, countUsers); // Вызов функции editUser
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
-                    statistic(); // Вызов функции statistics
+                    statistic(calories); // Вызов функции statistics
                 } else if (buttonExit.getGlobalBounds().contains(mousePos)) {
                     exit(0);
                 }

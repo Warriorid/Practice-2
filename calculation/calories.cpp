@@ -3,7 +3,7 @@
 #include "caloriesFunc.h"
 
 
-void statistic() {
+void statistic(Calories& calories) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
     sf::Texture texture;
