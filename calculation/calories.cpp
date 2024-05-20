@@ -84,7 +84,7 @@ void statistic(Calories& calories, User& man) {
                 if (buttonDone.getGlobalBounds().contains(mousePos)) {
                     window.close();
                 } else if (buttonMore.getGlobalBounds().contains(mousePos)) {
-                    //more(); // Вызов функции more()
+                    more(calories, man); // Вызов функции more()
                 }
             }
         }
@@ -268,4 +268,96 @@ double sumKg(Calories& calories){
     double sum = (spent-get)/7700;
     return sum;
 
+}
+
+
+void more(Calories& calories, User& man){
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
+
+    // Загружаем фон (если он нужен)
+    sf::Texture texture;
+    if (!texture.loadFromFile("image8.png")) {
+        return;
+    }
+    sf::Sprite sprite;
+    sprite.setTexture(texture);
+    sprite.setScale(
+            static_cast<float>(window.getSize().x) / texture.getSize().x,
+            static_cast<float>(window.getSize().y) / texture.getSize().y
+    );
+
+    // Кнопка "Done"
+    sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
+    buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2 - 50,
+                           window.getSize().y - buttonDone.getSize().y - 20);
+    buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
+
+    sf::Font font;
+    if (!font.loadFromFile("Arial_Black.ttf")) {
+        return;
+    }
+
+    // Текст для кнопки "Done"
+    sf::Text textDone("Done", font, 20);
+    textDone.setFillColor(sf::Color::White);
+    textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
+    // Фон для текста
+    sf::RectangleShape textBackground(sf::Vector2f(600, 555));
+    textBackground.setFillColor(sf::Color(255, 255, 255, 150)); // Полупрозрачный белый
+    textBackground.setPosition(window.getSize().x / 2 - textBackground.getSize().x / 2,
+                               window.getSize().y / 2 - textBackground.getSize().y / 2 - 50);
+
+    // Строка для вывода информации о калориях
+    std::string caloriesInfo = "Calories:\n";
+
+    // Цикл по дням
+    for (int day = 15; day < max_day; ++day) {
+        caloriesInfo += "Day " + std::to_string(day + 1) + ": ";
+        caloriesInfo += "Received - " + std::to_string(calories.getReceivedCalories()[day]) + ", ";
+        caloriesInfo += "Spent - " + std::to_string(calories.getSpentCalories()[day]) + "\n";
+    }
+
+    // Текст для отображения калорий
+    sf::Text textCalories(caloriesInfo, font, 20);
+    textCalories.setFillColor(sf::Color::Black);
+    textCalories.setPosition(window.getSize().x / 2 - textCalories.getLocalBounds().width / 2,
+                             window.getSize().y / 2 - textCalories.getLocalBounds().height / 2 - 100); // Центрируем текст
+
+    std::string weightText = "Your weight now: " + std::to_string(man.getWeight());
+    sf::Text textWeight(weightText, font, 30);
+    textWeight.setFillColor(sf::Color::Black);
+    textWeight.setPosition(window.getSize().x / 2 - textWeight.getLocalBounds().width / 2,
+                           500); // Центрируем текст
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                if (buttonDone.getGlobalBounds().contains(mousePos)) {
+                    window.close();
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+
+        // Рисуем фон (если есть)
+        window.draw(sprite);
+
+        // Рисуем фон для текста
+        window.draw(textBackground);
+
+        // Рисуем текст о калориях
+        window.draw(textCalories);
+
+        // Рисуем кнопку "Done"
+        window.draw(buttonDone);
+        window.draw(textDone);
+
+        window.draw(textWeight);
+        window.display();
+    }
 }
