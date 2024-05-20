@@ -23,5 +23,5 @@ public:
     void setSpentCalories(std::vector<double> s) { spentCalories = s; }
 };
 
-//gkhghugkgkgygkygkuygkuygk,ygkygkuygkyg
+
 #endif

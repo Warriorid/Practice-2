@@ -58,7 +58,7 @@ void statistic(Calories& calories) {
 }
 
 
-void add_date_of_day(int& day, int& countUsers, Calories& calories){
+void add_date_of_day(int& day, int& countUsers, Calories& calories, User& man){
     if(countUsers==0){
         return;}
     if (day == 30) {
@@ -134,6 +134,9 @@ void add_date_of_day(int& day, int& countUsers, Calories& calories){
     std::vector<double>& receivedCalories = calories.getReceivedCalories();
     spentCalories[day - 1] = std::stod(values[0]);
     receivedCalories[day - 1] = std::stod(values[1]);
+    double Kg = sumKg(calories);
+    man.setWeight(man.getWeight()-Kg);
+    recordedToFile(man, countUsers);
     recordedToFileForCalories(day, calories);
 }
 
@@ -197,4 +200,17 @@ void readFileForCalories(int &day, Calories &calories) {
     }
 
     file.close();
+}
+
+double sumKg(Calories& calories){
+    double spent, get;
+    for (int i = 0; i<30;i++){
+        spent+=calories.getSpentCalories()[i];
+    }
+    for (int i = 0; i<30;i++){
+        get+=calories.getReceivedCalories()[i];
+    }
+    double sum = (spent-get)/7700;
+    return sum;
+
 }
