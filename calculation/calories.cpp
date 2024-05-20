@@ -3,7 +3,7 @@
 #include "caloriesFunc.h"
 
 
-void statistic(Calories& calories) {
+void statistic(Calories& calories, User& man) {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
 
     // Загружаем фон (если он нужен)
@@ -20,9 +20,15 @@ void statistic(Calories& calories) {
 
     // Кнопка "Done"
     sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
-    buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2,
+    buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2 - 50,
                            window.getSize().y - buttonDone.getSize().y - 20);
     buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
+
+    // Кнопка "More"
+    sf::RectangleShape buttonMore(sf::Vector2f(100, 40));
+    buttonMore.setPosition(window.getSize().x / 2 - buttonMore.getSize().x / 2 + 50,
+                           window.getSize().y - buttonMore.getSize().y - 20);
+    buttonMore.setFillColor(sf::Color(82, 82, 82, 200));
 
     // Шрифт для текста
     sf::Font font;
@@ -35,6 +41,10 @@ void statistic(Calories& calories) {
     textDone.setFillColor(sf::Color::White);
     textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
 
+    // Текст для кнопки "More"
+    sf::Text textMore("More...", font, 20);
+    textMore.setFillColor(sf::Color::White);
+    textMore.setPosition(buttonMore.getPosition().x + 25, buttonMore.getPosition().y + 5);
 
     // Фон для текста
     sf::RectangleShape textBackground(sf::Vector2f(600, 555));
@@ -58,6 +68,12 @@ void statistic(Calories& calories) {
     textCalories.setPosition(window.getSize().x / 2 - textCalories.getLocalBounds().width / 2,
                              window.getSize().y / 2 - textCalories.getLocalBounds().height / 2 - 100); // Центрируем текст
 
+    std::string weightText = "Your weight now: " + std::to_string(man.getWeight());
+    sf::Text textWeight(weightText, font, 30);
+    textWeight.setFillColor(sf::Color::Black);
+    textWeight.setPosition(window.getSize().x / 2 - textWeight.getLocalBounds().width / 2,
+                           500); // Центрируем текст
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -67,6 +83,8 @@ void statistic(Calories& calories) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (buttonDone.getGlobalBounds().contains(mousePos)) {
                     window.close();
+                } else if (buttonMore.getGlobalBounds().contains(mousePos)) {
+                    //more(); // Вызов функции more()
                 }
             }
         }
@@ -86,6 +104,10 @@ void statistic(Calories& calories) {
         window.draw(buttonDone);
         window.draw(textDone);
 
+        // Рисуем кнопку "More"
+        window.draw(buttonMore);
+        window.draw(textMore);
+        window.draw(textWeight);
         window.display();
     }
 }
