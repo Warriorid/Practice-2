@@ -65,7 +65,59 @@ void addUser(User & man, int& countUsers){
 }
 
 void Delete(User & man, int& countUsers, int& day, Calories calories){
-    if(countUsers==0){return;}
+    if(countUsers==0){
+        sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant");
+
+
+        sf::Texture texture;
+        if (!texture.loadFromFile("image4.png")) {
+            return;
+        }
+        sf::Sprite background(texture);
+
+        // Создание кнопки "Done"
+        sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
+        buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2,
+                               window.getSize().y - buttonDone.getSize().y - 20);
+        buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
+
+        // Создание текста для кнопки
+        sf::Font font;
+        if (!font.loadFromFile("Arial_Black.ttf")) {
+            return;
+        }
+        sf::Text textDone("Done", font, 20);
+        textDone.setFillColor(sf::Color::White);
+        textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
+
+        // Создание текста сообщения
+        sf::Text textMessage("User has been deleted", font, 24);
+        textMessage.setFillColor(sf::Color::White);
+        textMessage.setPosition(window.getSize().x / 2 - textMessage.getGlobalBounds().width / 2,
+                                window.getSize().y / 2 - textMessage.getGlobalBounds().height / 2);
+
+        while (window.isOpen()) {
+            sf::Event event;
+            while (window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                    window.close();
+                } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    if (buttonDone.getGlobalBounds().contains(mousePos)) {
+                        window.close();
+                    }
+                }
+            }
+
+            window.clear(sf::Color::White);
+            window.draw(background);
+            window.draw(buttonDone);
+            window.draw(textDone);
+            window.draw(textMessage);
+
+            window.display();
+        }
+        return;}
     deleteCalories(calories, day);
     countUsers = 0;
     man.setName("-");
