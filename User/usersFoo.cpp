@@ -75,13 +75,11 @@ void Delete(User & man, int& countUsers, int& day, Calories calories){
         }
         sf::Sprite background(texture);
 
-        // Создание кнопки "Done"
         sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
         buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2,
                                window.getSize().y - buttonDone.getSize().y - 20);
         buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
 
-        // Создание текста для кнопки
         sf::Font font;
         if (!font.loadFromFile("Arial_Black.ttf")) {
             return;
@@ -90,7 +88,6 @@ void Delete(User & man, int& countUsers, int& day, Calories calories){
         textDone.setFillColor(sf::Color::White);
         textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
 
-        // Создание текста сообщения
         sf::Text textMessage("User has been deleted", font, 24);
         textMessage.setFillColor(sf::Color::White);
         textMessage.setPosition(window.getSize().x / 2 - textMessage.getGlobalBounds().width / 2,
@@ -142,7 +139,6 @@ void Delete(User & man, int& countUsers, int& day, Calories calories){
     text.setFillColor(sf::Color::White);
     text.setPosition(window.getSize().x / 2.f - text.getGlobalBounds().width / 2.f, window.getSize().y / 2.f - text.getGlobalBounds().height / 2.f);
 
-    // Кнопка "Done"
     sf::RectangleShape button(sf::Vector2f(100.f, 40.f));
     button.setFillColor(sf::Color(82, 82, 82, 200));
     button.setPosition(window.getSize().x / 2.f - button.getSize().x / 2.f, window.getSize().y / 2.f + text.getGlobalBounds().height + 20.f);
@@ -190,7 +186,6 @@ void DisplayUser(User & man, int& countUsers) {
     sf::Sprite backgroundSprite;
     backgroundSprite.setTexture(backgroundTexture);
 
-    // Кнопка "Done"
     sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
     buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2, window.getSize().y - buttonDone.getSize().y - 400);
     buttonDone.setFillColor(sf::Color(82, 82, 82, 200)); // Серый цвет
@@ -199,7 +194,6 @@ void DisplayUser(User & man, int& countUsers) {
     textDone.setFillColor(sf::Color::White); // Белый текст
     textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5); // Центрируем текст на кнопке
 
-    // Текст для пользователя (с увеличенным размером шрифта и расстоянием)
     sf::Text textName("Name: " + man.getName(), font, 32);
     textName.setFillColor(sf::Color::White);
     textName.setPosition(window.getSize().x / 2 - textName.getGlobalBounds().width / 2, 30); // Центрируем текст

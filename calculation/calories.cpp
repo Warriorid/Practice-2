@@ -42,7 +42,7 @@ void statistic(Calories& calories, User& man) {
     textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
 
     // Текст для кнопки "More"
-    sf::Text textMore("More...", font, 20);
+    sf::Text textMore("More", font, 20);
     textMore.setFillColor(sf::Color::White);
     textMore.setPosition(buttonMore.getPosition().x + 25, buttonMore.getPosition().y + 5);
 
