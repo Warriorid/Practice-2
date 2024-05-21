@@ -213,7 +213,7 @@ void readFile(User & man, int & countUsers) {
 
     UserExtractor extractor;
 
-    extractor.readFromFile(man, file);
+    extractor.readFromFile(man, file, countUsers);
     file.close();
 }
 

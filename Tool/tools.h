@@ -9,8 +9,7 @@
 
 class UserExtractor {
 public:
-    void readFromFile(User& user, std::ifstream& file) {
-        int countUsers;
+    void readFromFile(User& user, std::ifstream& file, int& countUsers) {
         file >> countUsers;
         file.ignore();
 
