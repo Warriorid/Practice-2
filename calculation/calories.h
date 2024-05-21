@@ -2,6 +2,7 @@
 #ifndef PRACTICE_2_CALORIES_H
 #define PRACTICE_2_CALORIES_H
 #include "../Tool/tools.h"
+#include <sstream>
 
 const int max_day = 30;
 
@@ -24,4 +25,31 @@ public:
 };
 
 
+
+
+class CaloriesExtractor {
+public:
+    void readFromFile(Calories& calories, std::ifstream& file, int& day) {
+        file >> day;
+        file.ignore();
+
+        std::string line;
+        std::getline(file, line); // Считываем строку с калориями
+
+        std::istringstream iss_received(line); // Поток для receivedCalories
+        for (size_t i = 0; i < 30; ++i) {
+            double value;
+            iss_received >> value;
+            calories.getReceivedCalories()[i] = value;
+        }
+
+        std::getline(file, line); // Считываем следующую строку с калориями
+        std::istringstream iss_spent(line); // Поток для spentCalories
+        for (size_t i = 0; i < 30; ++i) {
+            double value;
+            iss_spent >> value;
+            calories.getSpentCalories()[i] = value;
+        }
+    }
+};
 #endif

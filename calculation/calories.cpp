@@ -233,27 +233,11 @@ void readFileForCalories(int &day, Calories &calories) {
         return; // Файл не найден
     }
 
-    file >> day; // Считываем день
-    file.ignore(); // Игнорируем символ новой строки
+    // Создаем объект извлекателя
+    CaloriesExtractor extractor;
 
-    std::string line;
-    std::getline(file, line); // Считываем строку с калориями
-
-    std::istringstream iss_received(line); // Поток для receivedCalories
-    for (size_t i = 0; i < 30; ++i) {
-        double value;
-        iss_received >> value;
-        calories.getReceivedCalories()[i] = value;
-    }
-
-    std::getline(file, line); // Считываем следующую строку с калориями
-    std::istringstream iss_spent(line); // Поток для spentCalories
-    for (size_t i = 0; i < 30; ++i) {
-        double value;
-        iss_spent >> value;
-        calories.getSpentCalories()[i] = value;
-    }
-
+    // Извлекаем данные о калориях из файла
+    extractor.readFromFile(calories, file, day);
     file.close();
 }
 
