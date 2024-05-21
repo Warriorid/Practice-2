@@ -34,17 +34,17 @@ public:
         file.ignore();
 
         std::string line;
-        std::getline(file, line); // Считываем строку с калориями
+        std::getline(file, line);
 
-        std::istringstream iss_received(line); // Поток для receivedCalories
+        std::istringstream iss_received(line);
         for (size_t i = 0; i < 30; ++i) {
             double value;
             iss_received >> value;
             calories.getReceivedCalories()[i] = value;
         }
 
-        std::getline(file, line); // Считываем следующую строку с калориями
-        std::istringstream iss_spent(line); // Поток для spentCalories
+        std::getline(file, line);
+        std::istringstream iss_spent(line);
         for (size_t i = 0; i < 30; ++i) {
             double value;
             iss_spent >> value;

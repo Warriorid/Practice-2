@@ -12,7 +12,6 @@ void menu(User & man, int& countUsers, int &day, Calories calories) {
 
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Fitness Assistant/Menu ");
 
-    // Calculate center of the window
     float centerX = window.getSize().x / 2.0f;
     float centerY = window.getSize().y / 2.0f;
 
@@ -97,9 +96,9 @@ void menu(User & man, int& countUsers, int &day, Calories calories) {
                 } else if (buttonAddDateOfDay.getGlobalBounds().contains(mousePos)) {
                     add_date_of_day(day, countUsers, calories, man);
                 } else if (buttonEditUser.getGlobalBounds().contains(mousePos)) {
-                    EditUser(man, countUsers); // Вызов функции editUser
+                    EditUser(man, countUsers);
                 } else if (buttonStatistics.getGlobalBounds().contains(mousePos)) {
-                    statistic(calories, man); // Вызов функции statistics
+                    statistic(calories, man);
                 } else if (buttonExit.getGlobalBounds().contains(mousePos)) {
                     exit(0);
                 }

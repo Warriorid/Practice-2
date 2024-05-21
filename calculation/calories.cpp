@@ -127,7 +127,7 @@ void add_date_of_day(int& day, int& countUsers, Calories& calories, User& man){
         }
 
         sf::Text textDone("Done", font, 20);
-        textDone.setFillColor(sf::Color::White); // Белый текст
+        textDone.setFillColor(sf::Color::White);
         textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
 
         sf::Text textMessage("Congratulations! You have achieved a 30-day fitness marathon!", font, 32);
@@ -279,7 +279,7 @@ void more(Calories& calories, User& man){
     sf::Text textCalories(caloriesInfo, font, 20);
     textCalories.setFillColor(sf::Color::Black);
     textCalories.setPosition(window.getSize().x / 2 - textCalories.getLocalBounds().width / 2,
-                             window.getSize().y / 2 - textCalories.getLocalBounds().height / 2 - 100); // Центрируем текст
+                             window.getSize().y / 2 - textCalories.getLocalBounds().height / 2 - 100);
 
     std::string weightText = "Your weight now: " + std::to_string(man.getWeight());
     sf::Text textWeight(weightText, font, 30);

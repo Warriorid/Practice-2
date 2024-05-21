@@ -12,4 +12,4 @@ void more(Calories& calories, User& man);
 void readFileForCalories(int & day, Calories& calories);
 void recordedToFileForCalories(int & day, Calories& calories);
 double sumKg(Calories& calories);
-#endif //PRACTICE_2_CALORIESFUNC_H
+#endif

@@ -188,27 +188,27 @@ void DisplayUser(User & man, int& countUsers) {
 
     sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
     buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2, window.getSize().y - buttonDone.getSize().y - 400);
-    buttonDone.setFillColor(sf::Color(82, 82, 82, 200)); // Серый цвет
+    buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
 
     sf::Text textDone("Done", font, 20);
     textDone.setFillColor(sf::Color::White); // Белый текст
-    textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5); // Центрируем текст на кнопке
+    textDone.setPosition(buttonDone.getPosition().x + 25, buttonDone.getPosition().y + 5);
 
     sf::Text textName("Name: " + man.getName(), font, 32);
     textName.setFillColor(sf::Color::White);
-    textName.setPosition(window.getSize().x / 2 - textName.getGlobalBounds().width / 2, 30); // Центрируем текст
+    textName.setPosition(window.getSize().x / 2 - textName.getGlobalBounds().width / 2, 30);
 
     sf::Text textAge("Age: " + std::to_string(man.getAge()), font, 32);
     textAge.setFillColor(sf::Color::White);
-    textAge.setPosition(window.getSize().x / 2 - textAge.getGlobalBounds().width / 2, 90); // Центрируем текст
+    textAge.setPosition(window.getSize().x / 2 - textAge.getGlobalBounds().width / 2, 90);
 
     sf::Text textHeight("Height: " + std::to_string(man.getHeight()) + " cm", font, 32);
     textHeight.setFillColor(sf::Color::White);
-    textHeight.setPosition(window.getSize().x / 2 - textHeight.getGlobalBounds().width / 2, 150); // Центрируем текст
+    textHeight.setPosition(window.getSize().x / 2 - textHeight.getGlobalBounds().width / 2, 150);
 
     sf::Text textWeight("Weight: " + std::to_string(man.getWeight()) + " kg", font, 32);
     textWeight.setFillColor(sf::Color::White);
-    textWeight.setPosition(window.getSize().x / 2 - textWeight.getGlobalBounds().width / 2, 210); // Центрируем текст
+    textWeight.setPosition(window.getSize().x / 2 - textWeight.getGlobalBounds().width / 2, 210);
 
     while (window.isOpen()) {
         sf::Event event;

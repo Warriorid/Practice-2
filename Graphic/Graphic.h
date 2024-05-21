@@ -5,4 +5,4 @@
 #include "../calculation/calories.h"
 void menu(User & man, int& countUsers, int& day, Calories calories);
 
-#endif //PRACTICE_2_GRAPHIC_H
+#endif
