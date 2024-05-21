@@ -17,19 +17,16 @@ void statistic(Calories& calories, User& man) {
             static_cast<float>(window.getSize().y) / texture.getSize().y
     );
 
-    // Кнопка "Done"
     sf::RectangleShape buttonDone(sf::Vector2f(100, 40));
     buttonDone.setPosition(window.getSize().x / 2 - buttonDone.getSize().x / 2 - 50,
                            window.getSize().y - buttonDone.getSize().y - 20);
     buttonDone.setFillColor(sf::Color(82, 82, 82, 200));
 
-    // Кнопка "More"
     sf::RectangleShape buttonMore(sf::Vector2f(100, 40));
     buttonMore.setPosition(window.getSize().x / 2 - buttonMore.getSize().x / 2 + 50,
                            window.getSize().y - buttonMore.getSize().y - 20);
     buttonMore.setFillColor(sf::Color(82, 82, 82, 200));
 
-    // Шрифт для текста
     sf::Font font;
     if (!font.loadFromFile("Arial_Black.ttf")) {
         return;
